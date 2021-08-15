@@ -17,7 +17,7 @@ interface IUser {
   email: string;
 }
 
-export default async function authToken({
+export default async function signIn({
   username,
   password,
 }: IAuthTokenReq): Promise<IAuthTokenRes> {
@@ -51,7 +51,7 @@ async function onSignInClicked() {
   const username = 'xiaohan';
   const password = '123456';
   try {
-    const res = await authToken({
+    const res = await signIn({
       username,
       password,
     });
