@@ -24,3 +24,8 @@ export interface IChannel {
   id: string;
   name: string;
 }
+
+export interface IUser {
+  id: string;
+  username: string;
+}
