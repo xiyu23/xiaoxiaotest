@@ -1,5 +1,6 @@
 import fetchAPI, { EHttpStatus, EMethod } from "../../http";
 import logger from "../../logger";
+import { IComment } from "./comments";
 
 interface IGetCommentsReq {
   offset?: number; // integer	Index of the starting record. Default: 0
@@ -10,19 +11,6 @@ interface IGetCommentsReq {
 interface IGetCommentsRes {
   comments: IComment[];
   hasMore: boolean; // Flag indicating if there are more comments available or not
-}
-
-interface IComment {
-  id: number;
-  create_time: number;
-  comment: string;
-  author: IAuthor;
-}
-
-interface IAuthor {
-  id: number;
-  username: string;
-  avatar: string;
 }
 
 /**
