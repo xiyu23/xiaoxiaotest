@@ -12,6 +12,8 @@ interface IGetEventParticipantsRes {
 
 /**
  * Get a list of all participants of an event.
+ * 
+ * 获取给定`event_id`活动的所有参与者，返回一个包含用户的数组
  * @param param 
  * @returns an array of users
  */

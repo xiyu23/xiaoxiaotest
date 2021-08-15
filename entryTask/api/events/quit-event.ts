@@ -1,23 +1,24 @@
 import fetchAPI, { EHttpStatus, EMethod } from "../../http";
 import logger from "../../logger";
-import { IEventDetail } from "./events";
 
-interface IGetEventDetailReq {
+interface IGetEventParticipantsReq {
   event_id: number;
 }
 
 /**
- * 获取指定`event_id`的详情
+ * Cancel participation of the current user in an event.
+ *
+ * 用户取消参加`event_id`
  * @param param
  * @returns
  */
-export default async function getEventDetail({
+export default async function quitEvent({
   event_id,
-}: IGetEventDetailReq): Promise<IEventDetail> {
+}: IGetEventParticipantsReq): Promise<any> {
   try {
-    return await fetchAPI<IEventDetail>({
-      method: EMethod.GET,
-      url: `/events/${event_id}`,
+    return await fetchAPI({
+      method: EMethod.DELETE,
+      url: `/events/${event_id}/participants`,
     });
   } catch (httpCode) {
     if (httpCode === EHttpStatus.InvalidToken) {
@@ -30,3 +31,4 @@ export default async function getEventDetail({
     throw httpCode;
   }
 }
+
